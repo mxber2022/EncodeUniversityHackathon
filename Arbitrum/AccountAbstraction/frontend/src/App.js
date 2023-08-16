@@ -9,9 +9,11 @@ import { BiconomySmartAccount,BiconomySmartAccountConfig, DEFAULT_ENTRYPOINT_ADD
 import { IPaymaster, BiconomyPaymaster,} from '@biconomy/paymaster'
 //import Counter from './Components/Counter';
 
+
+const CHAIN = ChainId.ARBITRUM_GOERLI_TESTNET;
 const bundler = new Bundler({
   bundlerUrl: process.env.REACT_APP_BundlerUrl,     
-  chainId: ChainId.ARBITRUM_GOERLI_TESTNET,
+  chainId: CHAIN,
   entryPointAddress: DEFAULT_ENTRYPOINT_ADDRESS,
 });
 
@@ -44,13 +46,13 @@ function App() {
     if (!sdkRef.current) {
       const socialLoginSDK = new SocialLogin();
       const signature1 = await socialLoginSDK.whitelistUrl(
-        "http://127.0.0.1:5173/"
+        "http://127.0.0.1:3000/"
       );
       await socialLoginSDK.init({
-        chainId: ethers.utils.hexValue(ChainId.ARBITRUM_GOERLI_TESTNET).toString(),
+        chainId: ethers.utils.hexValue(CHAIN).toString(),
         network: "testnet",
         whitelistUrls: {
-          "http://127.0.0.1:5173/": signature1,
+          "http://127.0.0.1:3000/": signature1,
         },
       });
       sdkRef.current = socialLoginSDK;
@@ -75,7 +77,7 @@ function App() {
     try {
       const biconomySmartAccountConfig = {
         signer: web3Provider.getSigner(),
-        chainId: ChainId.ARBITRUM_GOERLI_TESTNET,
+        chainId: CHAIN,
         bundler: bundler,
         paymaster: paymaster
       }
