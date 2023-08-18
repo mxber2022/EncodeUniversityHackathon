@@ -9,7 +9,7 @@ const CustomProvider = new ethers.providers.JsonRpcProvider("https://goerli.infu
 function EnsResolve () {
     const { address, isConnected } = useAccount();
     const { data, isError, isLoading } = useEnsName({
-        address: '0xA0Cf798816D4b9b9866b5330EEa46a18382f251e',
+        address: address,
     });
     
     return(
