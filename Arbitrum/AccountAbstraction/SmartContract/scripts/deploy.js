@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
 
-  const contract = await hre.ethers.deployContract("HackathonMemories", { gasLimit: "4000000" });
+  const contract = await hre.ethers.deployContract("GenerativeArt", { gasLimit: "4000000" });
   console.log(contract.target);  
   
 }

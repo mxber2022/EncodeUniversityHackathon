@@ -10,11 +10,18 @@ module.exports = {
       url: 'https://nova.arbitrum.io/rpc',
       accounts: [process.env.PRIVATE_KEY],
     },
+    
+    'EncodeOrbit': {
+      url: 'http://localhost:8449',
+      accounts: [process.env.PRIVATE_KEY],
+    },
+
   },
 
   etherscan: {
     apiKey: {
-      "Nova": "abc"
+      "Nova": "abc",
+      "EncodeOrbit": "abc"
     },
 
     customChains: [
@@ -23,6 +30,15 @@ module.exports = {
         chainId: 42170,
         urls: {
           apiURL: "https://api-nova.arbiscan.io/api",
+          browserURL: '',
+        },
+      },
+
+      {
+        network: "EncodeOrbit",
+        chainId: 7288857111,
+        urls: {
+          apiURL: "http:localhost:4000/api",
           browserURL: '',
         },
       },
