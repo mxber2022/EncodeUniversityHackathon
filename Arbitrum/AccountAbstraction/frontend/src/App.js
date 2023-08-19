@@ -7,10 +7,10 @@ import { ethers } from 'ethers'
 import { IBundler, Bundler } from '@biconomy/bundler'
 import { BiconomySmartAccount,BiconomySmartAccountConfig, DEFAULT_ENTRYPOINT_ADDRESS } from "@biconomy/account"
 import { IPaymaster, BiconomyPaymaster,} from '@biconomy/paymaster'
-//import Counter from './Components/Counter';
+import axios from 'axios';
+const { NFTStorage, File } = require('nft.storage');
 
-
-const CHAIN = ChainId.ARBITRUM_GOERLI_TESTNET;
+const CHAIN = ChainId.ARBITRUM_NOVA_MAINNET;
 const bundler = new Bundler({
   bundlerUrl: process.env.REACT_APP_BundlerUrl,     
   chainId: CHAIN,
@@ -105,10 +105,84 @@ function App() {
     enableInterval(false)
   }
 
+  const [description, setDescription] = useState("")
+  const [iprompt, setIprompt] = useState("")
+  const [image, setImage] = useState(null)
+
+  const submitHandler = async (e) => {
+    e.preventDefault()
+
+    if (iprompt === "") {
+      window.alert("Please enter prompt")
+      return
+    }
+    const imageData = await generateArt()
+  }
+
+  const datax = useRef("")
+  async function generateArt() {
+    const URL = `https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0`;
+    const response = await axios({
+        url: URL,
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_HUGGING_FACE_API_KEY}`,
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        data: JSON.stringify({
+          inputs: "description", options: { wait_for_model: true },
+        }),
+        responseType: 'arraybuffer',
+      })
+  
+      const type = response.headers['content-type']
+      const data = response.data
+  
+      const base64data = Buffer.from(data).toString('base64')
+      datax.current = data;
+      const img = `data:${type};base64,` + base64data;
+      console.log("img: ", img);
+      setImage(img)
+      return data
+  }
+
+  const [nftName, setNftName] = useState("")
+  const mintHandler = async (e) => {
+    e.preventDefault();
+    if (nftName === "") {
+      window.alert("Please provide NFT name")
+      return
+    }
+    else {
+      // 1. Upload image to IPFS
+      const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDVGYzA0NTUyMzI5ODA5NDI4NDkzY0VDYjdmZkY4RkUxNGY5YkQzOTQiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4OTk2NjA0NzY5NiwibmFtZSI6IlBhcmlzIn0.9CxIio0ygPmcf8onnQcFrZurTQACHiB8qOgO6tcHEWs"; 
+      const client1 = new NFTStorage({ token: apiKey });
+
+      console.log("datax", datax);
+      const blob = new Blob([datax.current], { type: "image/jpeg" });
+      console.log("blob", blob);
+
+      const file = new File([datax.current], "AI.jpeg", { type: "image/jpeg" });
+      const metadata = await client1.store({
+        name: nftName,
+        description: description,
+        image: file,
+      });
+      
+      console.log("metadata ", metadata);
+      console.log("metadata ", metadata.url);
+      
+      // 2. Mint
+
+
+    }
+  }
+
   return (
+  <>
     <div>
     <h1> Biconomy Smart Accounts using social login + Gasless Transactions</h1>
-
     {
       !smartAccount && !loading && <button onClick={login}>Login</button>
     }
@@ -125,7 +199,30 @@ function App() {
         </div>
       )
     }
-  </div>
+    </div>
+
+    <form onSubmit={submitHandler}>
+      <input type="text" placeholder="Enter Prompt" onChange={(e) => setIprompt(e.target.value)} />
+      <input type="submit" value="Generate NFT" />
+    </form>
+
+    <div className="image">
+          {
+           image==null? <></> 
+           : 
+           <img src={image} alt="AI ART" width={400}/>
+          }
+    </div>
+  
+  {
+  image==null? <></> :
+    <form onSubmit={mintHandler}>
+      <input type="text" placeholder="Nft name" onChange={(e) => setNftName(e.target.value)} />
+      <input type="text" placeholder="Enter description" onChange={(e) => setDescription(e.target.value)} />
+      <input type="submit" value="Mint" />
+    </form>
+  }
+  </>
   );
 }
 
