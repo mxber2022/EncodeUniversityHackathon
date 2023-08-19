@@ -6,11 +6,12 @@ import { ChainId } from "@biconomy/core-types";
 import { ethers } from 'ethers'
 import { IBundler, Bundler } from '@biconomy/bundler'
 import { BiconomySmartAccount,BiconomySmartAccountConfig, DEFAULT_ENTRYPOINT_ADDRESS } from "@biconomy/account"
-import { IPaymaster, BiconomyPaymaster,} from '@biconomy/paymaster'
+import { IPaymaster, BiconomyPaymaster, PaymasterMode, IHybridPaymaster, SponsorUserOperationDto } from '@biconomy/paymaster'
 import axios from 'axios';
+import { abi } from './abi';
 const { NFTStorage, File } = require('nft.storage');
-
 const CHAIN = ChainId.ARBITRUM_NOVA_MAINNET;
+
 const bundler = new Bundler({
   bundlerUrl: process.env.REACT_APP_BundlerUrl,     
   chainId: CHAIN,
@@ -21,6 +22,7 @@ const paymaster = new BiconomyPaymaster({
   paymasterUrl: process.env.REACT_APP_PaymasterUrl 
 });
 
+//console.log(process.env.REACT_APP_PaymasterUrl);
 
 function App() {
 
@@ -46,13 +48,13 @@ function App() {
     if (!sdkRef.current) {
       const socialLoginSDK = new SocialLogin();
       const signature1 = await socialLoginSDK.whitelistUrl(
-        "http://127.0.0.1:3000/"
+        "http://127.0.0.1:3002/"
       );
       await socialLoginSDK.init({
         chainId: ethers.utils.hexValue(CHAIN).toString(),
-        network: "testnet",
+        network: "mainnet",
         whitelistUrls: {
-          "http://127.0.0.1:3000/": signature1,
+          "http://127.0.0.1:3002/": signature1,
         },
       });
       sdkRef.current = socialLoginSDK;
@@ -175,6 +177,36 @@ function App() {
       
       // 2. Mint
 
+      const CONTRACT = new ethers.Contract("0xCF905a8a4e1A0107aABe933de8f4F78E3A4f4E72", abi, provider);
+      const tx = await CONTRACT.populateTransaction.safeMint(String(smartAccount.address), metadata.url);
+      let partialUserOp = await smartAccount.buildUserOp([tx]);
+
+      const biconomyPaymaster = smartAccount.paymaster
+      let paymasterServiceData = {
+        mode: PaymasterMode.SPONSORED,
+      };
+      console.log("getting paymaster and data")
+      try {
+        const paymasterAndDataResponse =
+          await biconomyPaymaster.getPaymasterAndData(
+            partialUserOp,
+            paymasterServiceData
+          );
+          partialUserOp.paymasterAndData = paymasterAndDataResponse.paymasterAndData;
+        } catch (e) {
+        console.log("error received ", e);
+        }
+
+
+        console.log("sending userop")
+        try {
+          console.log("xx",partialUserOp);
+          const userOpResponse = await smartAccount.sendUserOp(partialUserOp);
+          const transactionDetails = await userOpResponse.wait();
+          console.log("transactionDetails: ", transactionDetails)
+          } catch (e) {
+            console.log("error received ", e);
+          }
 
     }
   }
