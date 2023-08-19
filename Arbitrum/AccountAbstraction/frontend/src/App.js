@@ -163,7 +163,7 @@ function App() {
 
       console.log("datax", datax);
       const blob = new Blob([datax.current], { type: "image/jpeg" });
-      console.log("blob", blob);
+      //console.log("blob", blob);
 
       const file = new File([datax.current], "AI.jpeg", { type: "image/jpeg" });
       const metadata = await client1.store({
