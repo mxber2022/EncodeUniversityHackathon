@@ -33,6 +33,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [provider, setProvider] = useState(null);
   const [EOA_Add, setEOA_Add] = useState(null);
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
     let configureLogin;
@@ -123,6 +124,7 @@ function App() {
       window.alert("Please enter prompt")
       return
     }
+    console.log("iprompt", iprompt);
     const imageData = await generateArt()
   }
 
@@ -138,7 +140,7 @@ function App() {
           'Content-Type': 'application/json',
         },
         data: JSON.stringify({
-          inputs: "description", options: { wait_for_model: true },
+          inputs: iprompt, options: { wait_for_model: true },
         }),
         responseType: 'arraybuffer',
       })
@@ -208,6 +210,7 @@ function App() {
           console.log("xx",partialUserOp);
           const userOpResponse = await smartAccount.sendUserOp(partialUserOp);
           const transactionDetails = await userOpResponse.wait();
+          setStatus("minted")
           console.log("transactionDetails: ", transactionDetails)
           } catch (e) {
             console.log("error received ", e);
@@ -340,13 +343,17 @@ function App() {
         </div>
 
         <div>
+          <label className='zzz' htmlFor="mintTo">{nameResolved}</label>
           {
-            avaURI==""? <></>:<img src={avaURI} alt="" width={25}/>
+            avaURI==""? <></>:<img className='AVA-URI' src={avaURI} alt="" width={25}/>
           }
-          <label htmlFor="mintTo">{nameResolved}</label>
         </div>
-        <input style={{ width: '200px', height: '40px' }} className='prom margintop' type="submit" value="Mint" />
+        <input style={{ width: '200px', height: '40px' }} className='prom margintopx' type="submit" value="Mint" />
       </form>
+
+      {
+        status=="minted" ? <h2>Great, NFT Minted</h2>:<></>
+      }
     </div>  
   </div>  
   </>
