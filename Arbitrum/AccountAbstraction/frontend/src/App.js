@@ -7,6 +7,7 @@ import { ethers } from 'ethers'
 import { IBundler, Bundler } from '@biconomy/bundler'
 import { BiconomySmartAccount,BiconomySmartAccountConfig, DEFAULT_ENTRYPOINT_ADDRESS } from "@biconomy/account"
 import { IPaymaster, BiconomyPaymaster, PaymasterMode, IHybridPaymaster, SponsorUserOperationDto } from '@biconomy/paymaster'
+import { AvatarResolver, utils as avtUtils } from '@ensdomains/ens-avatar';
 import axios from 'axios';
 import { abi } from './abi';
 const { NFTStorage, File } = require('nft.storage');
@@ -218,20 +219,42 @@ function App() {
   /*
     resolve ens
   */
+
+  const [avaURI, setAvaURI] = useState("")
   async function resolveNames(name) {
     const tempProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_INFURA_ETH_MAINNET);
-    var address =  await tempProvider.resolveName(name);
-    console.log("resolveNames: ", address);
-    setNameResolved(address);
+    const lastFourDigits = name.substring(name.length - 4);
 
-    try{
-      var x = await tempProvider.lookupAddress("0x2d1414E88F3aFb5c41726f12b170a510C3AE5c5e");
-      console.log("x",x);
+    if(lastFourDigits === ".eth") 
+    {
+      setAvaURI("");
+      var address =  await tempProvider.resolveName(name);
+      console.log("resolveNames: ", address);
+      setNameResolved(address);
     }
-    catch(e){
+    else {
+      try
+      {
+        setAvaURI("");
+        setNameResolved("");
+        
+        const resolvedAddress = await tempProvider.lookupAddress(name);
+        setNameResolved(resolvedAddress);
 
+        /* 
+          Resolve Avatar
+        */
+        const avt = new AvatarResolver(tempProvider);
+        const avatarURI = await avt.getAvatar(resolvedAddress);
+        console.log("AVA URI: ", avatarURI);
+        setAvaURI(avatarURI);
+      }
+      catch(e) {
+        
+      }
+        
     }
-    
+        
   }
 
   useEffect(()=>{
@@ -285,13 +308,27 @@ function App() {
   {
   image==null? <></> :
     <form onSubmit={mintHandler}>
-      <label htmlFor="username">Enter NFT Name</label>
-      <input type="text" placeholder="Nft name" onChange={(e) => setNftName(e.target.value)} />
-      <label htmlFor="description">Enter NFT description</label>
-      <input type="text" placeholder="Enter description" onChange={(e) => setDescription(e.target.value)} />
-      <label htmlFor="mintTo">Mint Address</label>
-      <input type="text" placeholder="Enter description" onChange={(e) => setMintTo(e.target.value)} />
-      <label htmlFor="mintTo">{nameResolved}</label>
+      <div>
+        <label htmlFor="username">Enter NFT Name </label>
+        <input type="text" placeholder="NFT name" onChange={(e) => setNftName(e.target.value)} />
+      </div>
+
+      <div>
+        <label htmlFor="description">Enter NFT description </label>
+        <input type="text" placeholder="Enter description" onChange={(e) => setDescription(e.target.value)} />
+      </div>
+
+      <div>
+        <label htmlFor="mintTo">Mint Address </label>
+        <input type="text" placeholder="Enter description" onChange={(e) => setMintTo(e.target.value)} />
+      </div>
+
+      <div>
+        {
+          avaURI==""? <></>:<img src={avaURI} alt="" width={25}/>
+        }
+        <label htmlFor="mintTo">{nameResolved}</label>
+      </div>
       <input type="submit" value="Mint" />
     </form>
   }
