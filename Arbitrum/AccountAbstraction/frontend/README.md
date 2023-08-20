@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Gasless NFT Minting using Stable Diffusion on Arbitrum Nova Blockchain with Biconomy Account Abstraction.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Gasless NFT Minting React App utilizing Stable Diffusion on the Arbitrum Nova blockchain. This project enables users to create AI-generated NFTs seamlessly, leveraging the power of stable diffusion, and mint these NFTs without worrying about gas fees. The app incorporates the innovative Biconomy account abstraction feature, streamlining the transaction process for users.
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+Gas fees have been a significant barrier for users wanting to participate in blockchain activities. This project addresses this challenge by utilizing the Arbitrum Nova blockchain's efficient Layer 2 scaling solution and the Biconomy account abstraction feature. The Stable Diffusion algorithm is employed to generate unique and artistic NFTs, offering users a creative way to express themselves.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Gasless Transactions: Users can mint NFTs without the burden of high gas fees, thanks to the Biconomy account abstraction feature.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Stable Diffusion Algorithm: The project incorporates the Stable Diffusion algorithm to generate AI-powered NFTs, providing users with a novel and artistic experience.
 
-### `npm test`
+- Arbitrum Nova Blockchain: The app is built on the Arbitrum Nova blockchain, leveraging its fast and cost-effective Layer 2 solution.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- User-Friendly Interface: The React app offers an intuitive and user-friendly interface, making it easy for users to create, view, and manage their NFTs.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up the project on your local machine.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js and npm installed globally.
+- An Ethereum wallet with some ETH for testing (e.g., MetaMask).
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone https://github.com/mxber2022/EncodeUniversityHackathon/tree/main/Arbitrum/AccountAbstraction/frontend
+   cd frontend
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   yarn
+   ```
 
-## Learn More
+3. Configure your Ethereum wallet provider (e.g., Infura) in the project (see [Configuration](#configuration) section).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Start the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   yarn start
+   ```
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Generating AI-Generated NFTs
 
-### Analyzing the Bundle Size
+1. Access the React app through your web browser (usually at `http://localhost:3000`).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Navigate to the AI-generated NFT creation section.
 
-### Making a Progressive Web App
+3. Configure the AI parameters, such as image style, colors, patterns, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Click the "Generate NFT" button to create your unique AI-generated NFT.
 
-### Advanced Configuration
+### Minting Gasless NFTs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Connect your Ethereum wallet (e.g., MetaMask) to the app.
 
-### Deployment
+2. Navigate to the minting section.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. Choose the AI-generated NFT you want to mint.
 
-### `npm run build` fails to minify
+4. Confirm the minting transaction. Biconomy's account abstraction will handle the gas fees.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Configuration
+
+The following environment variables can be configured:
+
+1. REACT_APP_BundlerUrl: Your Biconomy Bundler URL.
+2. REACT_APP_PaymasterUrl: Your Biconomy PayMaster URL.
+3. REACT_APP_HUGGING_FACE_API_KEY: Hugging face api key.
+4. REACT_APP_INFURA_ETH_MAINNET: Infura mainnet rpc url.
+
+Note: Make sure to keep sensitive information like API keys and contract addresses secure. You might consider using a .env file for this purpose.
+
+
+Happy Minting !
