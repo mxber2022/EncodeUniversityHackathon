@@ -222,6 +222,7 @@ function App() {
 
   const [avaURI, setAvaURI] = useState("")
   async function resolveNames(name) {
+    setAvaURI("")
     const tempProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_INFURA_ETH_MAINNET);
     const lastFourDigits = name.substring(name.length - 4);
 
@@ -237,7 +238,7 @@ function App() {
       {
         setAvaURI("");
         setNameResolved("");
-        
+
         const resolvedAddress = await tempProvider.lookupAddress(name);
         setNameResolved(resolvedAddress);
 
@@ -271,66 +272,84 @@ function App() {
   return (
   <>
     <div>
-    <h1> AI GENERATIVE ART Powered by Biconomy </h1>
+    <h1 className='Title'> AI GENERATIVE ART </h1>
     {
-      !smartAccount && !loading && <button className='loginbutton' onClick={login}>Login</button>
+      !smartAccount && !loading && <>
+      <div className='LoginButtonWrap'>
+        <div class="pulse"></div>
+        <div>
+          <button className='loginbutton' onClick={login}>Login</button>
+        </div>
+      </div>
+      </>
     }
     { 
       loading && <p>Loading account details...</p>
     }
     {
-      !!smartAccount && (
+      !!smartAccount && (<>
         <div className="buttonWrapper">
+          <div className='LoginButtonWrap'>
+            <button className='disconnect loginbutton' onClick={logout}>Logout</button>
+          </div>
+
           <h3>EOA Address:</h3>
           <p>{EOA_Add}</p>
           <h3>Smart account address:</h3>
           <p>{smartAccount.address}</p>
-          
-          <button onClick={logout}>Logout</button>
         </div>
+
+        <form onSubmit={submitHandler}>
+          <input  style={{ width: '300px', height: '40px' , marginRight: '10px'}} className='prom' type="text" placeholder="Enter Prompt" onChange={(e) => setIprompt(e.target.value)} />
+          <input style={{ width: '200px', height: '40px' }} className='prom' type="submit" value="Generate NFT" />
+        </form>
+
+        </>
       )
     }
     </div>
 
-    <form onSubmit={submitHandler}>
-      <input type="text" placeholder="Enter Prompt" onChange={(e) => setIprompt(e.target.value)} />
-      <input type="submit" value="Generate NFT" />
-    </form>
-
+  
+  {
+  image==null? <></> :
+  <>
+  <div className='GenerativeArt'>
     <div className="image">
           {
            image==null? <></> 
            : 
-           <img src={image} alt="AI ART" width={400}/>
+           <img src={image} className='AIART' alt="AI ART" width={500}/>
           }
     </div>
-  
-  {
-  image==null? <></> :
-    <form onSubmit={mintHandler}>
-      <div>
-        <label htmlFor="username">Enter NFT Name </label>
-        <input type="text" placeholder="NFT name" onChange={(e) => setNftName(e.target.value)} />
-      </div>
+        
+    <div className='MintHandler'>
+      <form onSubmit={mintHandler}>
+        <div className='margintop'>
+          <label className='larger-label' htmlFor="username">Enter NFT Name </label>
+          <input style={{ width: '200px', height: '30px' }} className='prom'  type="text" placeholder="NFT name" onChange={(e) => setNftName(e.target.value)} />
+        </div>
 
-      <div>
-        <label htmlFor="description">Enter NFT description </label>
-        <input type="text" placeholder="Enter description" onChange={(e) => setDescription(e.target.value)} />
-      </div>
+        <div className='margintop'>
+          <label className='larger-label' htmlFor="description">Enter NFT description </label>
+          <input style={{ width: '200px', height: '30px' }} className='prom' type="text" placeholder="Enter description" onChange={(e) => setDescription(e.target.value)} />
+        </div>
 
-      <div>
-        <label htmlFor="mintTo">Mint Address </label>
-        <input type="text" placeholder="Enter description" onChange={(e) => setMintTo(e.target.value)} />
-      </div>
+        <div className='margintop'>
+          <label className='larger-label' htmlFor="mintTo">Mint Address </label>
+          <input style={{ width: '450px', height: '30px' }} className='prom' type="text" placeholder="Enter Minting Address" onChange={(e) => setMintTo(e.target.value)} />
+        </div>
 
-      <div>
-        {
-          avaURI==""? <></>:<img src={avaURI} alt="" width={25}/>
-        }
-        <label htmlFor="mintTo">{nameResolved}</label>
-      </div>
-      <input type="submit" value="Mint" />
-    </form>
+        <div>
+          {
+            avaURI==""? <></>:<img src={avaURI} alt="" width={25}/>
+          }
+          <label htmlFor="mintTo">{nameResolved}</label>
+        </div>
+        <input style={{ width: '200px', height: '40px' }} className='prom margintop' type="submit" value="Mint" />
+      </form>
+    </div>  
+  </div>  
+  </>
   }
   </>
   );
