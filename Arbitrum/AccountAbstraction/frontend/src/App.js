@@ -31,6 +31,7 @@ function App() {
   const sdkRef = useRef(null)
   const [loading, setLoading] = useState(false)
   const [provider, setProvider] = useState(null);
+  const [EOA_Add, setEOA_Add] = useState(null);
 
   useEffect(() => {
     let configureLogin;
@@ -86,6 +87,7 @@ function App() {
       let biconomySmartAccount = new BiconomySmartAccount(biconomySmartAccountConfig)
       biconomySmartAccount =  await biconomySmartAccount.init()
       console.log("owner: ", biconomySmartAccount.owner)
+      setEOA_Add(biconomySmartAccount.owner);
       console.log("address: ", await biconomySmartAccount.getSmartAccountAddress())
       console.log("deployed: ", await biconomySmartAccount.isAccountDeployed( await biconomySmartAccount.getSmartAccountAddress()))
 
@@ -107,9 +109,11 @@ function App() {
     enableInterval(false)
   }
 
-  const [description, setDescription] = useState("")
-  const [iprompt, setIprompt] = useState("")
-  const [image, setImage] = useState(null)
+  const [description, setDescription] = useState("");
+  const [mintTo, setMintTo] = useState("")
+  const [iprompt, setIprompt] = useState("");
+  const [image, setImage] = useState(null);
+  const [nameResolved, setNameResolved] = useState(null);
 
   const submitHandler = async (e) => {
     e.preventDefault()
@@ -211,19 +215,51 @@ function App() {
     }
   }
 
+  /*
+    resolve ens
+  */
+  async function resolveNames(name) {
+    const tempProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_INFURA_ETH_MAINNET);
+    var address =  await tempProvider.resolveName(name);
+    console.log("resolveNames: ", address);
+    setNameResolved(address);
+
+    try{
+      var x = await tempProvider.lookupAddress("0x2d1414E88F3aFb5c41726f12b170a510C3AE5c5e");
+      console.log("x",x);
+    }
+    catch(e){
+
+    }
+    
+  }
+
+  useEffect(()=>{
+
+    try{
+      resolveNames(mintTo);
+    } 
+    catch(e) {
+      console.log("cannot resolve name");
+    }
+
+  },[mintTo] )
+  
   return (
   <>
     <div>
-    <h1> Biconomy Smart Accounts using social login + Gasless Transactions</h1>
+    <h1> AI GENERATIVE ART Powered by Biconomy </h1>
     {
-      !smartAccount && !loading && <button onClick={login}>Login</button>
+      !smartAccount && !loading && <button className='loginbutton' onClick={login}>Login</button>
     }
-    {
+    { 
       loading && <p>Loading account details...</p>
     }
     {
       !!smartAccount && (
         <div className="buttonWrapper">
+          <h3>EOA Address:</h3>
+          <p>{EOA_Add}</p>
           <h3>Smart account address:</h3>
           <p>{smartAccount.address}</p>
           
@@ -249,8 +285,13 @@ function App() {
   {
   image==null? <></> :
     <form onSubmit={mintHandler}>
+      <label htmlFor="username">Enter NFT Name</label>
       <input type="text" placeholder="Nft name" onChange={(e) => setNftName(e.target.value)} />
+      <label htmlFor="description">Enter NFT description</label>
       <input type="text" placeholder="Enter description" onChange={(e) => setDescription(e.target.value)} />
+      <label htmlFor="mintTo">Mint Address</label>
+      <input type="text" placeholder="Enter description" onChange={(e) => setMintTo(e.target.value)} />
+      <label htmlFor="mintTo">{nameResolved}</label>
       <input type="submit" value="Mint" />
     </form>
   }
