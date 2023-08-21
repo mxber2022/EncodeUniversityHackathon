@@ -20,6 +20,7 @@
     "axios": "^1.4.0",
     "crypto-browserify": "^3.12.0",
     "nft.storage": "^7.1.1",
+    "openai": "^4.0.0",
     "react": "^18.2.0",
     "react-app-rewired": "^2.2.1",
     "react-dom": "^18.2.0",

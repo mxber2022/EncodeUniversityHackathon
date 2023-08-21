@@ -130,6 +130,7 @@ function App() {
 
   const datax = useRef("")
   async function generateArt() {
+    
     const URL = `https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0`;
     const response = await axios({
         url: URL,
@@ -144,7 +145,29 @@ function App() {
         }),
         responseType: 'arraybuffer',
       })
-  
+      
+/*
+
+      const URL = `https://api.openai.com/v1/images/generations`;
+      const response = await axios({
+        url: URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.REACT_APP_OPEA_AI}`
+        },
+        data: JSON.stringify({
+          prompt: iprompt, "n": 1, "size": "1024x1024"
+        }),
+        responseType: 'arraybuffer',
+      })
+
+
+*/
+
+
+
+
       const type = response.headers['content-type']
       const data = response.data
   
