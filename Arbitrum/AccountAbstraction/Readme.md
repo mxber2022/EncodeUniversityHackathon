@@ -8,6 +8,9 @@ Welcome to AI-ART project. This repository contains the code for deploying a sma
 
 The `SmartContract` folder contains the smart contract code and deployment scripts.
 
+The smart contract is deployed to address:
+Arbitrum Nova - 0xCF905a8a4e1A0107aABe933de8f4F78E3A4f4E72
+Contract Name -  GenerativeArt (GAI)
 
 ### frontend
 
