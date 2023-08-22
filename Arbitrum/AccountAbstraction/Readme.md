@@ -11,7 +11,7 @@ The `SmartContract` folder contains the smart contract code and deployment scrip
 
 ### frontend
 
-The `frontend` folder contains the React application to mint the nft.
+The `frontend` folder contains the React application to generate and mint the nft.
 
 
 # Installation
