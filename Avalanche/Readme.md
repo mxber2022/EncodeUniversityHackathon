@@ -1,6 +1,6 @@
 # AI-ART
 
-Welcome to AI-ART project. This repository contains the code for deploying a smart contract on the Arbitrum Nova blockchain and creating a React front end to interact with it.
+Welcome to AI-ART project. This repository contains the code for deploying a smart contract on the Avalanche FUJI blockchain and creating a React front end to interact with it.
 
 ## Folder Structure
 
@@ -9,7 +9,7 @@ Welcome to AI-ART project. This repository contains the code for deploying a sma
 The `SmartContract` folder contains the smart contract code and deployment scripts.
 
 The smart contract is deployed to address: <br /> 
-Arbitrum Nova - 0xCF905a8a4e1A0107aABe933de8f4F78E3A4f4E72 <br /> 
+Avalanche FUJI - 0x84239B1fDB29d493CAd65BecC55caCcfb8F144B4 <br /> 
 Contract Name -  GenerativeArt (GAI) <br /> 
 
 ### frontend
