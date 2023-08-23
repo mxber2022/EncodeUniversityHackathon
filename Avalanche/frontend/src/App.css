@@ -1,0 +1,108 @@
+body {
+    background-image: url('');
+    
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.AIART {
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pulse {
+    position: relative;
+    animation: rippleSmall .8s ease-in-out infinite;
+    border-radius: 50%;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+}
+@keyframes rippleSmall {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255,0,0,.3), 0 0 0 5px rgba(255,0,0,.3), 0 0 0 10px rgba(255,0,0,.3);
+    }
+    100% {
+        box-shadow: 0 0 0 5px rgba(255,0,0,.3), 0 0 0 10px rgba(255,0,0,.3), 0 0 0 12px rgba(255,0,0,.3);
+    }
+}
+
+.Title {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.loginbutton {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    color: #e21915;
+    margin-left: 20px;
+    background-color: black;
+    width: 140px; 
+    height: 40px; 
+    border-radius: 10px;
+    border: 'none';
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    text-indent: 0;
+}
+
+.LoginButtonWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginbutton:hover {
+    color: rgb(255, 250, 245);
+}
+
+
+.GenerativeArt {
+    padding-top: 20px;
+    display: flex;
+}
+
+.MintHandler {
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 3px solid red; 
+    margin-left: 40px;
+    border-radius: 10px;
+}
+
+.prom {
+    width: '300px' !important;
+    height: '40px' !important;
+    font-size: 18px;
+}
+
+.larger-label {
+    font-size: 20px;
+}
+
+.margintop {
+    margin-top: 10px;
+}
+
+.margintopx {
+    margin-top: 50px;   
+}
+
+.AVA-URI {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+
+.zzz{
+    padding-left: 117px;
+    color: #e21915;
+}
+
