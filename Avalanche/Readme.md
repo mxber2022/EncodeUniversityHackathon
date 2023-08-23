@@ -1,4 +1,4 @@
-# AI-ART
+# AVA AI
 
 Welcome to AVA AI project. This repository contains the code for deploying a smart contract on the Avalanche FUJI blockchain and creating a React front end to interact with it.
 
