@@ -17,6 +17,9 @@ export default function SortTransaction() {
     
     console.log(inputAddress);
     setAct(10);
+    /*
+    Sql query for contract name
+    */
     const queryx = `SELECT name FROM ethereum.abi WHERE contract_address = '${inputAddress}' LIMIT 1;`;
     console.log(query);
     setquery(queryx);
@@ -26,8 +29,8 @@ export default function SortTransaction() {
   
 return (
   <>
-    <input type="text" value={inputAddress} onChange={handleInputChange} placeholder="Enter Contract Address" />
-    <button onClick={retrieveLatestTransaction}>Enter</button>
+    <input style={{ width: '340px', height: '40px' , marginRight: '10px', marginBottom: '50px'}} type="text" value={inputAddress} onChange={handleInputChange} placeholder="Enter Contract Address" />
+    <button style={{ width: '300px', height: '40px' , marginRight: '10px', marginBottom: '50px'}} onClick={retrieveLatestTransaction}>Enter</button>
     
     {
       act===10 ?

@@ -31,8 +31,6 @@ function App() {
   return (
     <>
       <WagmiConfig config={wagmiConfig}>
-        <Nav/>
-        <Fetch/>
         <SortTransaction/>
       </WagmiConfig>
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
