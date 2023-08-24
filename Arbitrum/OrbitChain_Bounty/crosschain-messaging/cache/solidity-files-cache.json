@@ -1,0 +1,852 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/contracts/arbitrum/GreeterL2.sol": {
+      "lastModificationDate": 1692484242033,
+      "contentHash": "b27e3f9bf15b7852ef468edd4f239acd",
+      "sourceName": "contracts/arbitrum/GreeterL2.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@arbitrum/nitro-contracts/src/precompiles/ArbSys.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.11"
+      ],
+      "artifacts": [
+        "GreeterL2"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/precompiles/ArbSys.sol": {
+      "lastModificationDate": 1692484287609,
+      "contentHash": "8f59ae71c86a7ae80bfa0f991dda067c",
+      "sourceName": "@arbitrum/nitro-contracts/src/precompiles/ArbSys.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.21 <0.9.0"
+      ],
+      "artifacts": [
+        "ArbSys"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/Inbox.sol": {
+      "lastModificationDate": 1692484287535,
+      "contentHash": "4a15d0c8c9ef0045c6505c836bcfe57d",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/Inbox.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Error.sol",
+        "./IInbox.sol",
+        "./ISequencerInbox.sol",
+        "./IBridge.sol",
+        "./Messages.sol",
+        "../libraries/AddressAliasHelper.sol",
+        "../libraries/DelegateCallAware.sol",
+        "../libraries/MessageTypes.sol",
+        "../libraries/Constants.sol",
+        "../precompiles/ArbSys.sol",
+        "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Inbox"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/Error.sol": {
+      "lastModificationDate": 1692484287543,
+      "contentHash": "0143b06b95707a658e96913120937a08",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/Error.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/IBridge.sol": {
+      "lastModificationDate": 1692484287527,
+      "contentHash": "7d6c7a6cd0507d47e0de0c09675c82c1",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/IBridge.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IOwnable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.9 <0.9.0"
+      ],
+      "artifacts": [
+        "IBridge"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/DelegateCallAware.sol": {
+      "lastModificationDate": 1692484287543,
+      "contentHash": "41961a7ebbf9f2bfda347e250b80928f",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/DelegateCallAware.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Error.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DelegateCallAware"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/Messages.sol": {
+      "lastModificationDate": 1692484287528,
+      "contentHash": "80fa320b7606c65416fb739c64106604",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/Messages.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Messages"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/ISequencerInbox.sol": {
+      "lastModificationDate": 1692484287532,
+      "contentHash": "d4a54fb5ddf4d1608d3795ade9ba1fa4",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/ISequencerInbox.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/IGasRefunder.sol",
+        "./IDelayedMessageProvider.sol",
+        "./IBridge.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.9 <0.9.0"
+      ],
+      "artifacts": [
+        "ISequencerInbox"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/IInbox.sol": {
+      "lastModificationDate": 1692484287527,
+      "contentHash": "5cee0ff8f7249c5e17230c8264d949d3",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/IInbox.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBridge.sol",
+        "./IDelayedMessageProvider.sol",
+        "./ISequencerInbox.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.9 <0.9.0"
+      ],
+      "artifacts": [
+        "IInbox"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/AddressAliasHelper.sol": {
+      "lastModificationDate": 1692484287535,
+      "contentHash": "ac0cc7be428d237612f77b3c8646aa2a",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/AddressAliasHelper.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AddressAliasHelper"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/MessageTypes.sol": {
+      "lastModificationDate": 1692484287543,
+      "contentHash": "b6c830ff8c0feac7a6d5726c02b0280a",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/MessageTypes.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/Constants.sol": {
+      "lastModificationDate": 1692484287540,
+      "contentHash": "40f5dfdbe442eb328b9da93064b2edff",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/Constants.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+      "lastModificationDate": 1692484276426,
+      "contentHash": "f5233d9eeebd5f0b4633650939e72426",
+      "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PausableUpgradeable"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1692484276431,
+      "contentHash": "b70d2e0552ab1f44f7e44b5f8379c358",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "AddressUpgradeable"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/IOwnable.sol": {
+      "lastModificationDate": 1692484287527,
+      "contentHash": "4bf126e15ddda3cb4159c23a7e5b1bd3",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/IOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.21 <0.9.0"
+      ],
+      "artifacts": [
+        "IOwnable"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/IDelayedMessageProvider.sol": {
+      "lastModificationDate": 1692484287527,
+      "contentHash": "505245509a641d5c1c32e9e3addbfeec",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/IDelayedMessageProvider.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.9 <0.9.0"
+      ],
+      "artifacts": [
+        "IDelayedMessageProvider"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/IGasRefunder.sol": {
+      "lastModificationDate": 1692484287543,
+      "contentHash": "2c58ec1378bd6175350be0885486067a",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/IGasRefunder.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.9 <0.9.0"
+      ],
+      "artifacts": [
+        "GasRefundEnabled",
+        "IGasRefunder"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1692484276430,
+      "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ContextUpgradeable"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1692484288482,
+      "contentHash": "49c8ad51a559f6dda13d35874f7dfdb9",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/IOutbox.sol": {
+      "lastModificationDate": 1692484287538,
+      "contentHash": "33e870b13226b78e83fb394779364dfe",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/IOutbox.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBridge.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.9 <0.9.0"
+      ],
+      "artifacts": [
+        "IOutbox"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/bridge/Outbox.sol": {
+      "lastModificationDate": 1692484287538,
+      "contentHash": "38d281e10ee4aafecc7843d764b3e192",
+      "sourceName": "@arbitrum/nitro-contracts/src/bridge/Outbox.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Error.sol",
+        "./IBridge.sol",
+        "./IOutbox.sol",
+        "../libraries/MerkleLib.sol",
+        "../libraries/DelegateCallAware.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Outbox"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/node_modules/@arbitrum/nitro-contracts/src/libraries/MerkleLib.sol": {
+      "lastModificationDate": 1692484287543,
+      "contentHash": "c25e8b415b790eb79a04f0d5ce1c64dc",
+      "sourceName": "@arbitrum/nitro-contracts/src/libraries/MerkleLib.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Error.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "MerkleLib"
+      ]
+    },
+    "/Users/maharajababu/Desktop/encode-workshop-crosschain-messaging/contracts/ethereum/GreeterL1.sol": {
+      "lastModificationDate": 1692484242034,
+      "contentHash": "9856a08109d99cb75e095936d033ed2b",
+      "sourceName": "contracts/ethereum/GreeterL1.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@arbitrum/nitro-contracts/src/bridge/Inbox.sol",
+        "@arbitrum/nitro-contracts/src/bridge/Outbox.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.11"
+      ],
+      "artifacts": [
+        "GreeterL1"
+      ]
+    }
+  }
+}

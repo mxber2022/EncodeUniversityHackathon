@@ -1,0 +1,42 @@
+{
+  "chainInfo": {
+    "minL2BaseFee": 100000000,
+    "networkFeeReceiver": "0x93Ed38501DD730CB6456FE874200d5f48A79d136",
+    "infrastructureFeeCollector": "0x93Ed38501DD730CB6456FE874200d5f48A79d136",
+    "batchPoster": "0x7f5814E1ebcAbB3BB38cA4c9eBe3EeC83321d0ca",
+    "staker": "0x9c91EDae3Be3EA69D8A1439929b5cdb6dF7EbB34",
+    "chainOwner": "0x93Ed38501DD730CB6456FE874200d5f48A79d136",
+    "chainName": "EncodeOrbit",
+    "chainId": 7288857111
+  },
+  "coreContracts": {
+    "rollup": "0x0820c8E8b6eCdd49da8AAA9C68a9CD3d313b3de5",
+    "inbox": "0xac0b6Da604b480990544781e16272D7eb70b2D2e",
+    "outbox": "0xB1D8B7DD4A03BCec1d660143DE1c872617fA6A18",
+    "adminProxy": "0xfCbf273fe0Dde935fE74a4A62D0A8715b08260B9",
+    "sequencerInbox": "0x0075b6A03aAc21F2B4379CF3ADdf35EcB702382F",
+    "bridge": "0x884e5F8A7268182Fac0B44E8fE0C2588359799E9",
+    "utils": "0x7E63CA513144B98CD5bc0D78cA3CeB069734FF32",
+    "validatorWalletCreator": "0x6e70f0696ACeFA02eF5b7Ef7D3eE0637d2dfE623"
+  },
+  "tokenBridgeContracts": {
+    "l2Contracts": {
+      "customGateway": "0x2399DC113B87527d94C68474b30EB70d47C07db9",
+      "multicall": "0x1DaE2fc045A16fFE6A6c1d2f5e7278f5428cc25D",
+      "proxyAdmin": "0x1e74e623e2Aa88c228D43f6610DDc5a27937276d",
+      "router": "0x4Cd39719ABA4e8cbdbbDeF682A1d1B90A0b2A7e4",
+      "standardGateway": "0x280c617c55f10710B151F28f64509D2860735fe0",
+      "weth": "0xe39Ab88f8A4777030A534146A9Ca3B52bd5D43A3",
+      "wethGateway": "0xdAF85aebB4Be91FB27088D5BE2cA6c881F0fe709"
+    },
+    "l3Contracts": {
+      "customGateway": "0x4Cd39719ABA4e8cbdbbDeF682A1d1B90A0b2A7e4",
+      "multicall": "0x96b6A9Dd6e6751133F6D23e11639fa0fE8Fa110d",
+      "proxyAdmin": "0xCF905a8a4e1A0107aABe933de8f4F78E3A4f4E72",
+      "router": "0x56dcFe664632c427484E14460533b9C4f4a40849",
+      "standardGateway": "0x1e74e623e2Aa88c228D43f6610DDc5a27937276d",
+      "weth": "0x1DaE2fc045A16fFE6A6c1d2f5e7278f5428cc25D",
+      "wethGateway": "0x280c617c55f10710B151F28f64509D2860735fe0"
+    }
+  }
+}

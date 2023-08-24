@@ -1,0 +1,55 @@
+{
+  "chain": {
+    "info-json": "[{\"chain-id\":7288857111,\"parent-chain-id\":421613,\"chain-name\":\"EncodeOrbit\",\"chain-config\":{\"chainId\":7288857111,\"homesteadBlock\":0,\"daoForkBlock\":null,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"clique\":{\"period\":0,\"epoch\":0},\"arbitrum\":{\"EnableArbOS\":true,\"AllowDebugPrecompiles\":false,\"DataAvailabilityCommittee\":false,\"InitialArbOSVersion\":10,\"InitialChainOwner\":\"0x93Ed38501DD730CB6456FE874200d5f48A79d136\",\"GenesisBlockNum\":0}},\"rollup\":{\"bridge\":\"0x884e5F8A7268182Fac0B44E8fE0C2588359799E9\",\"inbox\":\"0xac0b6Da604b480990544781e16272D7eb70b2D2e\",\"sequencer-inbox\":\"0x0075b6A03aAc21F2B4379CF3ADdf35EcB702382F\",\"rollup\":\"0x0820c8E8b6eCdd49da8AAA9C68a9CD3d313b3de5\",\"validator-utils\":\"0x7E63CA513144B98CD5bc0D78cA3CeB069734FF32\",\"validator-wallet-creator\":\"0x6e70f0696ACeFA02eF5b7Ef7D3eE0637d2dfE623\",\"deployed-at\":35415845}}]",
+    "name": "EncodeOrbit"
+  },
+  "parent-chain": {
+    "connection": {
+      "url": "https://goerli-rollup.arbitrum.io/rpc"
+    }
+  },
+  "http": {
+    "addr": "0.0.0.0",
+    "port": 8449,
+    "vhosts": "*",
+    "corsdomain": "*",
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "debug"
+    ]
+  },
+  "node": {
+    "forwarding-target": "",
+    "sequencer": {
+      "max-tx-data-size": 85000,
+      "enable": true,
+      "dangerous": {
+        "no-coordinator": true
+      },
+      "max-block-speed": "250ms"
+    },
+    "delayed-sequencer": {
+      "enable": true
+    },
+    "batch-poster": {
+      "max-size": 90000,
+      "enable": true,
+      "parent-chain-wallet": {
+        "private-key": "24cf947e1b62afcff90ef8d7522463058b232407c5f438381aba8c6a64d1fd1d"
+      }
+    },
+    "staker": {
+      "enable": true,
+      "strategy": "MakeNodes",
+      "parent-chain-wallet": {
+        "private-key": "e05cecbf2fdd760e119a8a6dac5ddca8d26b04aa4276c793ceb0b6559af94045"
+      }
+    },
+    "caching": {
+      "archive": true
+    }
+  }
+}
