@@ -1,7 +1,8 @@
 import './App.css';
 import Nav from './components/Nav/Nav';
 import EnsResolve from './components/Ens/EnsResolve';
-
+import FindVouchee from './components/FindVouchee/FindVouchee';
+import FindStake from './components/FindStake/FindStake';
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum';
 import { Web3Modal } from '@web3modal/react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
@@ -32,6 +33,8 @@ function App() {
       <WagmiConfig config={wagmiConfig}>
         <Nav/>
         <EnsResolve/>
+        <FindVouchee/>
+        <FindStake/>
       </WagmiConfig>
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </>
