@@ -14,7 +14,12 @@ function FindVouchee () {
     <>
         <h2>1. Vouchee</h2>
         {
-        <SQLQuery query="SELECT transaction_hash, from_address, params
+        <SQLQuery query="SELECT transaction_hash, from_address, params,
+        status,
+        gas_limit,
+        gas_price,
+        max_fee_per_gas,
+        max_priority_fee_per_gas
         FROM
         ethereum.transaction t
         

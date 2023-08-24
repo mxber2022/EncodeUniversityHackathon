@@ -18,7 +18,12 @@ function FindStake() {
   query="SELECT
   t.transaction_hash,
   t.from_address,
-  params
+  params,
+  status,
+  gas_limit,
+  gas_price,
+  max_fee_per_gas,
+  max_priority_fee_per_gas
 FROM
   ethereum.transaction t
   
@@ -36,7 +41,12 @@ LIMIT
   query="SELECT
   t.transaction_hash,
   t.from_address,
-  params
+  params,
+  status,
+  gas_limit,
+  gas_price,
+  max_fee_per_gas,
+  max_priority_fee_per_gas
 FROM
   ethereum.transaction t
   
@@ -47,6 +57,27 @@ LIMIT
   api_key={process.env.REACT_APP_API_KEY_SORT}
   />
 
+<h2>4. Cancel Vouch</h2>
+
+<SQLQuery
+  query="SELECT
+  t.transaction_hash,
+  t.from_address,
+  params,
+  status,
+  gas_limit,
+  gas_price,
+  max_fee_per_gas,
+  max_priority_fee_per_gas
+FROM
+  ethereum.transaction t
+  
+WHERE
+t.function = 'cancelVouch'
+LIMIT
+  100;"
+  api_key={process.env.REACT_APP_API_KEY_SORT}
+  />
 
 
 
