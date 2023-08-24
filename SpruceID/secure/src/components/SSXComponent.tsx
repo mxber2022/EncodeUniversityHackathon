@@ -20,9 +20,16 @@ const SSXComponent = () => {
           hosts: ['https://kepler.spruceid.xyz'],
           autoCreateNewOrbit: true
         }
-      }
+      },
+      resolveEns: true
     });
-    await ssx.signIn();
+    const { ens } = await ssx.signIn();
+    console.log("ens", ens);
+    const ensData = await ssx.resolveEns("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", {
+      domain: true,
+      avatar: true,
+    });
+    console.log("ens", ensData);
     setSSX(ssx);
   };
 
