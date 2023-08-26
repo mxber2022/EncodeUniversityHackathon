@@ -17,8 +17,8 @@ app.get('/encrypt', function (req, res) {
     res.send('Hello World!');
 });
 
+const port = process.env.PORT || "8000";
 
-
-app.listen(3005, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}`);
 });
