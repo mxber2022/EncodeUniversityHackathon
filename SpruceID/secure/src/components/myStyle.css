@@ -21,5 +21,15 @@
 }
 
 .distance {
-    padding-top: 10px;
+    padding-top: 15px;
+    display: flex;
+}
+
+.out {
+    display: flex;
+    margin-left: 10px;
+}
+
+.x {
+    padding-left: 10px;
 }
