@@ -2,6 +2,7 @@
 import { SSX } from "@spruceid/ssx";
 import { useState } from "react";
 import KeplerStorageComponent from "./KeplerStorageComponent";
+import "./myStyle.css";
 
 const SSXComponent = () => {
 
@@ -42,8 +43,7 @@ const SSXComponent = () => {
 
   return (
     <>
-      <h2>User Authorization Module</h2>
-      <p>Authenticate and Authorize using your ETH keys</p>
+      <p className="Title">Decentralised Password Manager</p>
       <br></br>
       {
         ssxProvider ?

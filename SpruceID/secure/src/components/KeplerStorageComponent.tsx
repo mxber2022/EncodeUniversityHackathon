@@ -55,41 +55,19 @@ const KeplerStorageComponent = ({ ssx }: IKeplerStorageComponent) => {
     setContentList((prevList) => prevList.filter((c) => c !== content));
     setLoading(false);
   };
-
+ 
   return (
     <div style={{ marginTop: 50 }}>
-      <h2>Storage Module</h2>
-      <p>Store your data in Kepler Orbit</p>
-      <p style={{ maxWidth: 500, fontSize: 12 }}>
-        Kepler is a decentralized <b>key-value</b> storage system that uses DIDs and Authorization Capabilities to define Orbits,
-        where your data lives, and who has access. In this example we will store a value (string) indexed by a key (string).
-      </p>
-      <input
-        type="text"
-        placeholder="Key"
-        value={key}
-        onChange={(e) => setKey(e.target.value)}
-        disabled={loading}
-      />
+      <h2>Provide data to encrypt and store in Kepler</h2>
+      <input type="text" placeholder="Key" value={key} onChange={(e) => setKey(e.target.value)} disabled={loading} />
       <br />
-      <input
-        type="text"
-        placeholder="Value"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        disabled={loading}
-      />
+
+      <input type="text" placeholder="Value" value={value} onChange={(e) => setValue(e.target.value)} disabled={loading} />
       <br />
-      <button
-        onClick={() => handlePostContent(key, value)}
-        disabled={loading}
-        style={{ marginTop: 15 }}
-      >
-        <span>
-          POST
-        </span>
-      </button>
-      <p><b>My Kepler data</b></p>
+
+      <button onClick={() => handlePostContent(key, value)} disabled={loading} style={{ marginTop: 15 }} > <span> POST </span> </button>
+      
+      <p><b>My passwords</b></p>
       <table>
         <tbody>
           {contentList?.map((content, i) => <tr key={i}>
