@@ -26,7 +26,7 @@ function FindVouchee () {
         WHERE
         t.function = 'updateTrust'
         LIMIT
-        10;"
+        100000;"
         api_key={process.env.REACT_APP_API_KEY_SORT}
         />
         }

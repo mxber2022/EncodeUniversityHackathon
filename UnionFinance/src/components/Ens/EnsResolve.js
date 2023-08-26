@@ -66,7 +66,8 @@ function EnsResolve () {
     
     return(
         <>
-            <h1>Union Finance OnChain Data Analysis using Sort</h1>
+            <h1>Union Finance OnChain Data Analysis using Sort </h1>
+            <h2 className="h2_contract">0x49c910Ba694789B58F53BFF80633f90B8631c195</h2>
             <h2>ENS RESOLVER</h2>
             <div>
                 <input type="text" style={{ width: '350px', height: '30px' }} value={inputValue} onChange={handleInputChange} />
