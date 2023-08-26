@@ -55,7 +55,7 @@ const SSXComponent = () => {
               </p>
             }
             <br />
-            <button onClick={ssxLogoutHandler}>
+            <button style={{ width: '180px', height: '40px' , marginRight: '10px'}} onClick={ssxLogoutHandler}>
               <span>
                 Sign-Out
               </span>
@@ -63,7 +63,7 @@ const SSXComponent = () => {
             <br />
             <KeplerStorageComponent ssx={ssxProvider} />
           </> :
-          <button onClick={ssxHandler}>
+          <button style={{ width: '180px', height: '40px' , marginRight: '10px'}} onClick={ssxHandler}>
             <span>
               Sign-In with Ethereum
             </span>

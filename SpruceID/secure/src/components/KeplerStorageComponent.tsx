@@ -1,6 +1,7 @@
 "use client";
 import { SSX } from "@spruceid/ssx";
 import { useEffect, useState } from "react";
+import "./myStyle.css";
 
 interface IKeplerStorageComponent {
   ssx: SSX
@@ -55,18 +56,57 @@ const KeplerStorageComponent = ({ ssx }: IKeplerStorageComponent) => {
     setContentList((prevList) => prevList.filter((c) => c !== content));
     setLoading(false);
   };
+  const [website, setWebsite] = useState("")
+  const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("")
+  const [notes, setNotes] = useState("")
  
   return (
     <div style={{ marginTop: 50 }}>
       <h2>Provide data to encrypt and store in Kepler</h2>
-      <input type="text" placeholder="Key" value={key} onChange={(e) => setKey(e.target.value)} disabled={loading} />
+<div className="dataField">   
+      <div className='website'>
+        <label className='larger-label' htmlFor="username">Key </label>
+        <input style={{ width: '300px', height: '40px' , marginRight: '10px'}} type="text" placeholder="Key" value={key} onChange={(e) => setKey(e.target.value)} disabled={loading} />
+        <br />
+      </div>
+    {
+      /* Password Fields */
+    }
+    <div className="field">
+
+      <div className='website distance'>
+          <label className='larger-label' htmlFor="username">Website </label>
+          <input style={{ width: '200px', height: '30px'}} className='prom'  type="text" placeholder="example.com" onChange={(e) => setWebsite(e.target.value)} />
+      </div>
+
+      <div className='username distance'>
+          <label className='larger-label' htmlFor="username">Username </label>
+          <input style={{ width: '200px', height: '30px' }} className='prom'  type="text" placeholder="example.com" onChange={(e) => setUsername(e.target.value)} />
+      </div>
+
+      <div className='pass distance'>
+          <label className='larger-label' htmlFor="username">Password </label>
+          <input style={{ width: '200px', height: '30px' }} className='prom' type="text" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
+      </div>
+
+      <div className='notes distance'>
+          <label className='larger-label' htmlFor="username">Notes </label>
+          <input style={{ width: '200px', height: '30px' }} className='prom' type="text" placeholder="Add notes" onChange={(e) => setNotes(e.target.value)} />
+      </div>
+    
+
+
+      <input style={{ width: '300px', height: '40px' , marginRight: '10px'}}  type="text" placeholder="Value" value={value} onChange={(e) => setValue(e.target.value)} disabled={loading} />
       <br />
 
-      <input type="text" placeholder="Value" value={value} onChange={(e) => setValue(e.target.value)} disabled={loading} />
-      <br />
+      <button style={{ width: '200px', height: '40px' , marginRight: '10px'}}  onClick={() => handlePostContent(key, value)} disabled={loading} > <span> Submit </span> </button>
+    
+    </div>
 
-      <button onClick={() => handlePostContent(key, value)} disabled={loading} style={{ marginTop: 15 }} > <span> POST </span> </button>
-      
+
+</div> 
+
       <p><b>My passwords</b></p>
       <table>
         <tbody>
