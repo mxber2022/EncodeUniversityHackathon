@@ -33,7 +33,7 @@ Follow these steps to get the Decentralized Password Manager up and running:
    npm install
    ```
 
-3. **Configure Environmental Variable:** Add your infura rpc url.
+3. **Configure Environmental Variable:** Add your infura rpc url in env file(INFURA_ETH_MAINET_KEY)
 
 4. **Run the Application:** Start the Next.js development server.
    ```
