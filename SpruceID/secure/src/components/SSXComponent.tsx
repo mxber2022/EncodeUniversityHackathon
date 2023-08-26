@@ -1,8 +1,10 @@
 "use client";
 import { SSX } from "@spruceid/ssx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import KeplerStorageComponent from "./KeplerStorageComponent";
 import "./myStyle.css";
+import { ethers } from "ethers";
+import { AvatarResolver, utils as avtUtils } from '@ensdomains/ens-avatar';
 
 const SSXComponent = () => {
 
@@ -25,12 +27,6 @@ const SSXComponent = () => {
       resolveEns: true
     });
     const { ens } = await ssx.signIn();
-    console.log("ens", ens);
-    const ensData = await ssx.resolveEns("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", {
-      domain: true,
-      avatar: true,
-    });
-    console.log("ens", ensData);
     setSSX(ssx);
   };
 
@@ -41,10 +37,34 @@ const SSXComponent = () => {
 
   const address = ssxProvider?.address() || '';
 
+  useEffect(()=> {
+    if(address!=='') {
+      ENS_ETH();
+    }
+    
+  }, [address])
+
+  const [nameResolved, setNameResolved] = useState("")
+  const [uri, setAvaURI] = useState("")
+
+  async function ENS_ETH() {
+    const tempProvider = new ethers.providers.JsonRpcProvider(process.env.INFURA_ETH_MAINET_KEY);
+    const add =  await tempProvider.lookupAddress(address);
+    setNameResolved(add);
+    console.log("resolveNames: ", add);
+
+    const avt = new AvatarResolver(tempProvider);
+    const avatarURI = await avt.getAvatar(add);
+    console.log("AVA URI: ", avatarURI);
+    setAvaURI(avatarURI);
+  }
+    
+  
+
   return (
     <>
       <p className="Title">Decentralised Password Manager</p>
-      <br></br>
+      
       {
         ssxProvider ?
           <>
@@ -53,6 +73,11 @@ const SSXComponent = () => {
               <p>
                 <b>Ethereum Address:</b> <code>{address}</code>
               </p>
+              
+            }
+            <p>{nameResolved}</p>
+            {
+            uri==""? <></>:<img className='AVA-URI' src={uri} alt="" width={25}/>
             }
             <br />
             <button style={{ width: '180px', height: '40px' , marginRight: '10px', fontSize:'15px'}} onClick={ssxLogoutHandler}>

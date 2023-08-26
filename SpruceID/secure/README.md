@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Decentralized Password Manager using Spruce Decentralized Identity
+
+Welcome to the Decentralized Password Manager powered by Spruce Decentralized Identity! This project allows you to securely manage your passwords using decentralized identity technology and even resolves ENS (Ethereum Name Service) addresses.
+
+
+## Introduction
+
+In the digital age, managing passwords securely is of utmost importance. The Decentralized Password Manager leverages the power of Spruce Decentralized Identity to provide you with a robust and secure solution for managing your passwords.
+
+## ENS Resolution
+
+We've integrated Ethereum Name Service (ENS) resolution to enhance user experience. Instead of dealing with complex Ethereum addresses, you can associate your accounts with human-readable ENS addresses.
+
+## Features
+
+- **Decentralized Identity:** Leverage the security of decentralized identity to store and manage your passwords.
+- **ENS Resolution:** Associate your accounts with ENS addresses for a more user-friendly experience.
+- **Password Encryption:** Your passwords are encrypted before being stored, ensuring your data's privacy.
+- **User-Friendly Interface:** The Next.js-based UI provides an intuitive and responsive user experience.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to get the Decentralized Password Manager up and running:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Clone the Repository:** Start by cloning this repository to your local machine.
+   ```
+   git clone https://github.com/mxber2022/EncodeUniversityHackathon/tree/main/SpruceID/secure
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies:** Navigate to the project directory and install the required dependencies.
+   ```
+   cd decentralized-password-manager
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Configure Environmental Variable:** Add your infura rpc url.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Run the Application:** Start the Next.js development server.
+   ```
+   npm run dev
+   ```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

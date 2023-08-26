@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ensdomains/ens-avatar": "^0.3.3",
     "@spruceid/ssx": "^2.1.0",
     "@spruceid/ssx-server": "^2.0.0",
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "crypto-js": "^4.1.1",
+    "ethers": "^5.7.2",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
