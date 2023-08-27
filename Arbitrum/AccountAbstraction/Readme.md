@@ -19,3 +19,5 @@ The `frontend` folder contains the React application to generate and mint the nf
 
 # Installation
 To set up and run the frontend, deploy smartcontract locally, follow the steps in their respective folder.
+
+## Please check the readme of the folder (frontend) to learn more about this project.
