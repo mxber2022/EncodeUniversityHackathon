@@ -2,6 +2,9 @@
 
 This project is all about onchain data analysis using sort api (SQL query) for Union protocol.
 
+## ENS Resolution
+
+We've integrated Ethereum Name Service (ENS) resolution to enhance user experience. Instead of dealing with complex Ethereum addresses, you can associate your accounts with human-readable ENS addresses.
 
 ### Installation
 

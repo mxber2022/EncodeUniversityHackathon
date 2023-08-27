@@ -16,6 +16,10 @@ Gas fees have been a significant barrier for users wanting to participate in blo
 
 - User-Friendly Interface: The React app offers an intuitive and user-friendly interface, making it easy for users to create, view, and manage their NFTs.
 
+## ENS Resolution
+
+We've integrated Ethereum Name Service (ENS) resolution to enhance user experience. Instead of dealing with complex Ethereum addresses, you can associate your accounts with human-readable ENS addresses.
+
 ## Getting Started
 
 Follow these steps to set up the project on your local machine.
