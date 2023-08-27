@@ -1,6 +1,7 @@
 # AVA AI
 
 Welcome to AVA AI project. This repository contains the code for deploying a smart contract on the Avalanche FUJI blockchain and creating a React front end to interact with it.
+###  Please check the readme of the folder (frontend) to learn more about this project.
 
 ## Folder Structure
 
@@ -16,7 +17,6 @@ Contract Name -  GenerativeArt (GAI) <br />
 
 The `frontend` folder contains the React application to generate and mint the nft.
 
-###  Please check the readme of the folder (frontend) to learn more about this project.
 
 # Installation
 To set up and run the frontend, deploy smartcontract locally, follow the steps in their respective folder.
